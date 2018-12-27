@@ -1,5 +1,5 @@
 {include file="public/head,public/nav"}
-<body>
+<body style="background-color: #F7F7F7">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -10,13 +10,10 @@
             <div class="col-md-4">
                 <!--搜索div-->
                 <div class="control-group">
-                    <label class="control-label" for="inputIcon">搜索</label>
-                    <div class="controls">
-                        <div class="input-prepend">
-                            <span class="add-on"><i class=" icon-search"></i></span>
-                            <input class="span2" id="inputIcon" type="text">
-                        </div>
-                    </div>
+                    <form class="form-search">
+                        <input type="text" class="input-medium search-query">
+                        <button type="submit" class="btn btn-info">搜索</button>
+                    </form>
                 </div>
                 <!--关于我的div-->
                 <div class="body-background">
