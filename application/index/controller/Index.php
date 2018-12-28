@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 
+use app\common\model\Document;
 use think\Controller;
 
 class Index extends Controller
@@ -17,6 +18,15 @@ class Index extends Controller
      */
     public function html()
     {
+//        $map=[
+//            "document_category_id"=>2,
+//        ];
+//        $document = new Document();
+//        $info = $document->where($map)->select();
+//        echo "<pre>";
+//        dump($info);
+//        echo "<pre>";
+//        $this->assign("info",$info);
         $this->assign("title","html分类");
         $this->assign('nav',"html_nav");
 
