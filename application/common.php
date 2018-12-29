@@ -10,15 +10,15 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
-//use think\db;
+use think\db;
 
 
 
 //getCategoryName
-//if(!function_exists('getCategoryName'))
-//{
-//    function getCategoryName($id)
-//    {
-//        return db('document_category')->where('id='.$id)->value('name');
-//    }
-//}
+if(!function_exists('getCategoryName'))
+{
+    function getCategoryName($id)
+    {
+        return db('document_category')->where('id='.$id)->value('name');
+    }
+}
