@@ -3,6 +3,7 @@ namespace app\index\controller;
 
 use app\common\model\Document;
 use think\Controller;
+use think\Db;
 
 class Index extends Controller
 {
@@ -18,15 +19,22 @@ class Index extends Controller
      */
     public function html()
     {
-//        $map=[
-//            "document_category_id"=>2,
-//        ];
+        $map=[
+            "document_category_id"=>2,
+        ];
+//        这种查询格式返回的数据三维数组不利于遍历
 //        $document = new Document();
 //        $info = $document->where($map)->select();
+
+        $info = Db::name('document')->where($map)->select();
 //        echo "<pre>";
 //        dump($info);
 //        echo "<pre>";
-//        $this->assign("info",$info);
+        $this->assign("info",$info);
+
+//        $documentcategory = getCategoryName(2);
+//        dump($documentcategory);
+//        $this->assign('documentcategory',$documentcategory);
         $this->assign("title","html分类");
         $this->assign('nav',"html_nav");
 

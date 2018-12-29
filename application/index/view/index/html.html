@@ -5,29 +5,31 @@
         <!--左侧-->
         <div class="col-md-8">
             <!--下面是文章内容的展示-->
-            <!--<div class="body-content">-->
-                <!--{empty name="info"}-->
-                <!--<p>暂无文章</p>-->
-                <!--{else/}-->
-                    <!--{volist name="info" id="vo"}-->
-                    <!--<section>-->
-                        <!--<a style="text-decoration: none" href="#"><h1>{$vo.title}</h1></a>-->
-                        <!--<div class="comment-content">-->
-                            <!--<p>{$vo.content}</p>-->
-                        <!--</div>-->
-                        <!--<div class="comment-info">-->
-                            <!--<p>发布时间：{:date('Y-m-d h:i',$vo.create_time)}</p>-->
-                        <!--</div>-->
-                    <!--</section>-->
-                    <!--{/volist}-->
-                <!--{/empty}-->
-            <!--</div>-->
-        </div>
+            <div class="body-content">
+                {empty name="info"}
+                <p>暂无文章</p>
+                {else/}
+                {volist name="info" id="vo"}
+                    <section>
+                        <a style="text-decoration: none" href="#"><h4>{$vo.title}</h4></a>
+                        <div class="comment-content">
+                        </div>
+                        <div class="comment-info">
+                            <p>发布时间：{$vo.create_time|date='Y-m-d',###}</p>
+                            <hr>
+                        </div>
 
+                    </section>
+                    {/volist}
+                {/empty}
+            </div>
         </div>
         <!--右侧-->
+        <div class="col-md-4">
+            <!--{include file="public/right"}-->
+        </div>
+    </div>
     </div>
 </div>
 </body>
-{include file="public/right"}
 {include file="public/footer"}
