@@ -115,4 +115,14 @@ class Index extends Controller
 
         return $this->fetch();
     }
+
+    /**
+     * 文章内容的显示界面
+     */
+    public function document()
+    {
+        $this->assign('title',"文章内容");
+        $this->assign('nav',"index_nav");
+        return $this->fetch();
+    }
 }
