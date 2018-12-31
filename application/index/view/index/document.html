@@ -46,19 +46,21 @@
             <p>节点一的内容节点一的内容节点一的内容节点一的内容</p>
             <p>节点一的内容节点一的内容节点一的内容节点一的内容</p>
         </div>
-        <!--右侧-->
-        <div class="col-md-4">
-            <!--关于我的div-->
-            <div class="body-background">
-                <div style="position: fixed; bottom: 185px">
-                    <p style="font-size: 2em">目录</p>
-                    <hr>
-                    <div class="document-right-a">
-                        <p><a href="#1" style="text-decoration: none">节点一</a></p>
-                        <p><a href="#2" style="text-decoration: none">节点二</a></p>
-                        <p><a href="#3" style="text-decoration: none">节点三</a></p>
-                        <p><a href="#4" style="text-decoration: none">节点四</a></p>
-                        <p><a href="#5" style="text-decoration: none">总结</a></p>
+    <!--右侧-->
+        <div class="col-md-4 ">
+            <div>
+                <!--关于我的div-->
+                <div class="body-background body-background-nav">
+                    <div class="body-background-nav-position" >
+                        <p style="font-size: 2em">目录</p>
+                        <hr>
+                        <div class="document-right-a">
+                            <p><a href="#1" style="text-decoration: none">节点一</a></p>
+                            <p><a href="#2" style="text-decoration: none">节点二</a></p>
+                            <p><a href="#3" style="text-decoration: none">节点三</a></p>
+                            <p><a href="#4" style="text-decoration: none">节点四</a></p>
+                            <p><a href="#5" style="text-decoration: none">总结</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,4 +68,17 @@
     </div>
 </div>
 </body>
+<script>
+    $(function() {
+        var elm = $('.body-background-nav');
+        var startPos = $(elm).offset().top;
+        $.event.add(window, "scroll", function() {
+            var p = $(window).scrollTop();
+            $(elm).css('position',((p) > startPos) ? 'fixed' : 'static');
+            $(elm).css('top',((p) > startPos) ? '0px' : '');
+            $(elm).css('width',((p) > startPos) ? '360px' : '');
+            $(elm).css('float',((p) > startPos) ? 'clear' : '');
+        });
+    });
+</script>
 {include file="public/footer"}
