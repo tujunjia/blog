@@ -10,6 +10,8 @@ class Index extends Controller
     {
         $this->assign('title',"涂峻嘉");
         $this->assign('nav',"index_nav");
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
         return $this->fetch();
     }
 
@@ -36,7 +38,8 @@ class Index extends Controller
         $this->assign('documentcategory',$documentcategory);
         $this->assign("title","html分类");
         $this->assign('nav',"html_nav");
-
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
         return $this->fetch();
     }
 
@@ -47,7 +50,8 @@ class Index extends Controller
     {
         $this->assign("title","javascript分类");
         $this->assign('nav',"javascript_nav");
-
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
         return $this->fetch();
     }
 
@@ -58,7 +62,8 @@ class Index extends Controller
     {
         $this->assign("title","linux分类");
         $this->assign('nav',"linux_nav");
-
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
         return $this->fetch();
     }
 
@@ -69,7 +74,8 @@ class Index extends Controller
     {
         $this->assign("title","php分类");
         $this->assign('nav',"php_nav");
-
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
         return $this->fetch();
     }
     /**
@@ -79,7 +85,8 @@ class Index extends Controller
     {
         $this->assign("title","redis分类");
         $this->assign('nav',"redis_nav");
-
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
         return $this->fetch();
     }
 
@@ -90,7 +97,8 @@ class Index extends Controller
     {
         $this->assign("title","smarty分类");
         $this->assign('nav',"smarty_nav");
-
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
         return $this->fetch();
     }
 
@@ -101,7 +109,8 @@ class Index extends Controller
     {
         $this->assign("title","jquery分类");
         $this->assign('nav',"jquery_nav");
-
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
         return $this->fetch();
     }
 
@@ -112,7 +121,8 @@ class Index extends Controller
     {
         $this->assign("title","mysql分类");
         $this->assign('nav',"mysql_nav");
-
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
         return $this->fetch();
     }
 
@@ -123,6 +133,20 @@ class Index extends Controller
     {
         $this->assign('title',"文章内容");
         $this->assign('nav',"index_nav");
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
         return $this->fetch();
+    }
+
+    /**
+     * about自我的关于界面
+     */
+    public function about(){
+        $this->assign('title','关于 | tujunjia');
+        $this->assign('nav','about');
+        $this->assign('nav_name','关于');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
+        return $this->fetch();
+
     }
 }

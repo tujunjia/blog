@@ -17,19 +17,41 @@
                 <p class="document-body-left-p" style="color: red">Linux进程状态：T (TASK_STOPPED or TASK_TRACED)，暂停状态或跟踪状态。</p>
                 <p class="document-body-left-p"> 向进程发送一个SIGSTOP信号，它就会因响应该信号而进入TASK_STOPPED状态（除非该进程本身处于TASK_UNINTERRUPTIBLE状态而不响应信号）。（SIGSTOP与SIGKILL信号一样，是非常强制的。不允许用户进程通过signal系列的系统调用重新设置对应的信号处理函数。）向进程发送一个SIGCONT信号，可以让其从TASK_STOPPED状态恢复到TASK_RUNNING状态。当进程正在被跟踪时，它处于TASK_TRACED这个特殊的状态。“正在被跟踪”指的是进程暂停下来，等待跟踪它的进程对它进行操作。比如在gdb中对被跟踪的进程下一个断点，进程在断点处停下来的时候就处于TASK_TRACED状态。而在其他时候，被跟踪的进程还是处于前面提到的那些状态。对于进程本身来说，TASK_STOPPED和TASK_TRACED状态很类似，都是表示进程暂停下来。</p>
                 <p class="document-body-left-p" style="color: red">Linux进程状态：Z (TASK_DEAD - EXIT_ZOMBIE)，退出状态，进程成为僵尸进程。</p>
-                <p class="document-body-left-p"> 进程在退出的过程中，处于TASK_DEAD状态。<br>在这个退出过程中，进程占有的所有资源将被回收，除了task_struct结构（以及少数资源）以外。于是进程就只剩下task_struct这么个空壳，故称为僵尸。之所以保留task_struct，是因为task_struct里面保存了进程的退出码、以及一些统计信息。而其父进程很可能会关心这些信息。比如在shell中，$?变量就保存了最后一个退出的前台进程的退出码，而这个退出码往往被作为if语句的判断条件。当然，内核也可以将这些信息保存在别的地方，而将task_struct结构释放掉，以节省一些空间。但是使用task_struct结构更为方便，因为在内核中已经建立了从pid到task_struct查找关系，还有进程间的父子关系。释放掉task_struct，则需要建立一些新的数据结构，以便让父进程找到它的子进程的退出信息。</p>
+                <p class="document-body-left-p">进程在退出的过程中，处于TASK_DEAD状态。<br>在这个退出过程中，进程占有的所有资源将被回收，除了task_struct结构（以及少数资源）以外。于是进程就只剩下task_struct这么个空壳，故称为僵尸。之所以保留task_struct，是因为task_struct里面保存了进程的退出码、以及一些统计信息。而其父进程很可能会关心这些信息。比如在shell中，$?变量就保存了最后一个退出的前台进程的退出码，而这个退出码往往被作为if语句的判断条件。当然，内核也可以将这些信息保存在别的地方，而将task_struct结构释放掉，以节省一些空间。但是使用task_struct结构更为方便，因为在内核中已经建立了从pid到task_struct查找关系，还有进程间的父子关系。释放掉task_struct，则需要建立一些新的数据结构，以便让父进程找到它的子进程的退出信息。</p>
                 <hr/>
-                <h1>父进程与子进程</h1>
-                <p class="document-body-left-p">节点一的内容节点一的内容节点一的内容节点一的内容节点一的内容节点一的内容节点一的内容节点一的内容</p>
+                <h1 id="2">前台进程与后台进程</h1>
+                <p class="document-body-left-p"><span style="color: red">前台进程</span>  :  是当前正在使用的程序。</p>
+                <p class="document-body-left-p"><span style="color: red">后台进程</span>  :  是在当前没有使用的但是也在运行的进程，包括那些系统隐藏或者没有图形化界面的程序。</p>
+                <p class="document-body-left-p">Linux中将前台进程挂到后台的意思就是，退出程序但是让这个程序依然进行运行，而不是退出当前程序只能关闭。</p>
+                <p class="document-body-left-p"><span style="color: red">特点</span>  :  </p>
+                <P class="document-body-left-p">1.    前台进程可以自己控制，后台进程由系统进行维护和管理。</P>
+                <P class="document-body-left-p">2.    前台进程和后台进程可以互相转换，</P>
+                <P class="document-body-left-p">3.    由于是后台进程，所以系统会将主要精力放在前台也就是当前进程中，后台进程自然会比较慢。</P>
                 <hr/>
-                <h1>前台进程与后台进程</h1>
-                <p class="document-body-left-p">节点一的内容节点一的内容节点一的内容节点一的内容</p>
+                <h1 id="3">进程常用命令</h1>
+                <p class="document-body-left-p" style="color: red">查进程：</p>
+                <p class="document-body-left-p">ps命令查找与进程相关的PID号：</p>
+                <p class="document-body-left-p"> ps -a 显示现行终端机下的所有程序，包括其他用户的程序。</p>
+                <p class="document-body-left-p">    ps -A 显示所有程序。</p>
+                <p class="document-body-left-p">ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。</p>
+                <p class="document-body-left-p">ps -e 此参数的效果和指定"A"参数相同。</p>
+                <p class="document-body-left-p">    ps -e 列出程序时，显示每个程序所使用的环境变量。</p>
+                <p class="document-body-left-p">    ps -f 用ASCII字符显示树状结构，表达程序间的相互关系。</p>
+                <p class="document-body-left-p">    ps -H 显示树状结构，表示程序间的相互关系。</p>
+                <p class="document-body-left-p">    ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。</p>
+                <p class="document-body-left-p">    ps -s 采用程序信号的格式显示程序状况。</p>
+                <p class="document-body-left-p">    ps -S 列出程序时，包括已中断的子程序资料。</p>
+                <p class="document-body-left-p">    ps -t<终端机编号> 指定终端机编号，并列出属于该终端机的程序的状况。</p>
+                <p class="document-body-left-p" style="color: red">终止进程：</p>
+                <p class="document-body-left-p">命令：kill </p>
+                <p class="document-body-left-p">    格式：kill [option] pid</p>
+                <p class="document-body-left-p"> 功能：向指定的进程送信号或终止进程。kill指令的用途是送一个signal给某一个process，因为大部份送的都是用来杀掉 process 的 SIGKILL 或 SIGHUP ，因此称为 kil</p>
+                <p class="document-body-left-p">    选项：-9  强行终止进程</p>
+                <p class="document-body-left-p">    注释：pid标示进程号，可由ps命令得到。</p>
+
                 <hr/>
-                <h1>进程常用命令</h1>
-                <p class="document-body-left-p">节点一的内容节点一的内容节点一的内容节点一的内容</p>
-                <hr/>
-                <h1>总结</h1>
-                <p class="document-body-left-p">节点一的内容节点一的内容节点一的内容节点一的内容</p>
+                <h1 id="4">总结</h1>
+                <p class="document-body-left-p"></p>
             </div>
         </div>
     <!--右侧-->
@@ -42,10 +64,9 @@
                         <hr>
                         <div class="document-right-a">
                             <p><a href="#1" style="text-decoration: none">1 进程状态</a></p>
-                            <p><a href="#2" style="text-decoration: none">2 父进程与子进程</a></p>
-                            <p><a href="#3" style="text-decoration: none">3 前台进程与后台进程</a></p>
-                            <p><a href="#4" style="text-decoration: none">4 进程常用命令</a></p>
-                            <p><a href="#5" style="text-decoration: none">5 总结</a></p>
+                            <p><a href="#2" style="text-decoration: none">2 前台进程与后台进程</a></p>
+                            <p><a href="#3" style="text-decoration: none">3 进程常用命令</a></p>
+                            <p><a href="#4" style="text-decoration: none">4 总结</a></p>
                         </div>
                     </div>
                 </div>
