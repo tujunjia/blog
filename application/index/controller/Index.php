@@ -127,10 +127,21 @@ class Index extends Controller
     }
 
     /**
-     * 文章内容的显示界面
+     * linux文章内容的显示界面
      */
     public function document()
     {
+        $this->assign('title',"文章内容");
+        $this->assign('nav',"index_nav");
+        $this->assign('nav_name','tujunjia');
+        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
+        return $this->fetch();
+    }
+
+    /**
+     *html文章内容的显示界面
+     */
+    public function index_document_html(){
         $this->assign('title',"文章内容");
         $this->assign('nav',"index_nav");
         $this->assign('nav_name','tujunjia');
@@ -145,8 +156,10 @@ class Index extends Controller
         $this->assign('title','关于 | tujunjia');
         $this->assign('nav','about');
         $this->assign('nav_name','关于');
-        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
+        $this->assign('nav_flag','个人信息介绍');
         return $this->fetch();
 
     }
+
+
 }

@@ -18,7 +18,15 @@
                     <p class="about-content-p"></p>
                     <h1>交流</h1>
                     <p class="about-content-p">与本博客内容相关的问题可以在对应文章或本页下面留言，我将尽可能做到有问必答。</p>
-                    <h1></h1>
+                    <h1>赞助本站</h1>
+                    <p class="about-content-p">坚持原创写作并不是一件容易的事，如果你认为我的文章对你有帮助，欢迎赞助本站（打赏我）：</p>
+                    <div style="margin: 0px auto;" >
+                        <a>
+                            <img src="__STATIC__/img/17.jpg" width="200px" height="200px" alt="微信收款码"/>
+                        </a>
+                        <img src="__STATIC__/img/18.jpg" width="200px" height="200px" alt="支付宝收款码"/>
+                        <p> <span >微信扫码打赏</span> <span>支付宝扫码打赏</span></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,4 +48,17 @@
     </div>
 </div>
 </body>
+<script>
+    $(function() {
+        var elm = $('.body-background-nav');
+        var startPos = $(elm).offset().top;
+        $.event.add(window, "scroll", function() {
+            var p = $(window).scrollTop();
+            $(elm).css('position',((p) > startPos) ? 'fixed' : 'static');
+            $(elm).css('top',((p) > startPos) ? '0px' : '');
+            $(elm).css('width',((p) > startPos) ? '360px' : '');
+            $(elm).css('float',((p) > startPos) ? 'clear' : '');
+        });
+    });
+</script>
 {include file="public/footer"}
