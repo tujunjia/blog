@@ -6,43 +6,97 @@
         <div class="col-md-8">
             <div class="document-body-left">
                 <!--下面是文章内容的展示-->
+                <h1>学习html知识重点难点总结:</h1>
+                <hr/>
                 <h1 id="1">伪类选择器</h1>
-                <p class="document-body-left-p">Linux是一个多用户，多任务的系统，可以同时运行多个用户的多个程序，就必然会产生很多的进程，而每个进程会有不同的状态。(总结起来就是以下五种状态)</p>
-                <p class="document-body-left-p" style="color: red">Linux进程状态：R (TASK_RUNNING)，可执行状态。</p>
+                <p class="document-body-left-p">在支持 CSS 的浏览器中，链接的不同状态都可以以不同的方式显示</p>
+                <p class="document-body-left-p">实例：</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        a:link {color:#FF0000;}        /* 未访问的链接 */
+                        a:visited {color:#00FF00;}     /* 已访问的链接 */
+                        a:hover {color:#FF00FF;}       /* 鼠标划过链接 */
+                        a:active {color:#0000FF;}      /* 已选中的链接 */
+                    </code>
+                </pre>
+                <p class="document-body-left-p" style="color: red">注意：</p>
+                <p class="document-body-left-p"> 1、在CSS定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才有效。</p>
+                <p class="document-body-left-p"> 2、在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。</p>
+                <p class="document-body-left-p"> 3、伪类的名称不区分大小写。</p>
+
+
                 <hr/>
                 <h1 id="2">边框属性重点</h1>
-                <p class="document-body-left-p"><span style="color: red">前台进程</span>  :  是当前正在使用的程序。</p>
-                <p class="document-body-left-p"><span style="color: red">后台进程</span>  :  是在当前没有使用的但是也在运行的进程，包括那些系统隐藏或者没有图形化界面的程序。</p>
-                <p class="document-body-left-p">Linux中将前台进程挂到后台的意思就是，退出程序但是让这个程序依然进行运行，而不是退出当前程序只能关闭。</p>
-                <p class="document-body-left-p"><span style="color: red">特点</span>  :  </p>
-                <P class="document-body-left-p">1.    前台进程可以自己控制，后台进程由系统进行维护和管理。</P>
-                <P class="document-body-left-p">2.    前台进程和后台进程可以互相转换，</P>
-                <P class="document-body-left-p">3.    由于是后台进程，所以系统会将主要精力放在前台也就是当前进程中，后台进程自然会比较慢。</P>
+                <p class="document-body-left-p">1、边框的一般属性</p>
+                <p class="document-body-left-p">实例:</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        border：10px  5px  15px  0;     /*设置边框上右下左的像素*/
+
+                        border-top: 100px solid red;
+                        border-right: 100px solid green;
+                        border-top: 100px solid red;
+                        border-right: 100px solid green;  /*以上四种是分辨设置的*/
+
+                        border-color：red;                 /*这是设置边框四周颜色为红色*/
+
+                        border-top: 100px solid red;      /*连写模式 像素  实线  颜色*/
+                    </code>
+
+                </pre>
+                <p class="document-body-left-p">2、边框的圆角属性</p>
+                <p class="document-body-left-p">实例:</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        border：10px  5px  15px  0         /*分别设置边框的像素*/
+                    </code>
+                </pre>
+                <p class="document-body-left-p"><span style="color: red">注意：</span>IE浏览器不支持圆角属性</p>
                 <hr/>
                 <h1 id="3">背景属性</h1>
                 <p class="document-body-left-p" style="color: red">查进程：</p>
-                <p class="document-body-left-p">ps命令查找与进程相关的PID号：</p>
-                <p class="document-body-left-p"> ps -a 显示现行终端机下的所有程序，包括其他用户的程序。</p>
-                <p class="document-body-left-p">    ps -A 显示所有程序。</p>
-                <p class="document-body-left-p">ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。</p>
-                <p class="document-body-left-p">ps -e 此参数的效果和指定"A"参数相同。</p>
-                <p class="document-body-left-p">    ps -e 列出程序时，显示每个程序所使用的环境变量。</p>
-                <p class="document-body-left-p">    ps -f 用ASCII字符显示树状结构，表达程序间的相互关系。</p>
-                <p class="document-body-left-p">    ps -H 显示树状结构，表示程序间的相互关系。</p>
-                <p class="document-body-left-p">    ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。</p>
-                <p class="document-body-left-p">    ps -s 采用程序信号的格式显示程序状况。</p>
-                <p class="document-body-left-p">    ps -S 列出程序时，包括已中断的子程序资料。</p>
-                <p class="document-body-left-p">    ps -t<终端机编号> 指定终端机编号，并列出属于该终端机的程序的状况。</p>
-                <p class="document-body-left-p" style="color: red">终止进程：</p>
-                <p class="document-body-left-p">命令：kill </p>
-                <p class="document-body-left-p">    格式：kill [option] pid</p>
-                <p class="document-body-left-p"> 功能：向指定的进程送信号或终止进程。kill指令的用途是送一个signal给某一个process，因为大部份送的都是用来杀掉 process 的 SIGKILL 或 SIGHUP ，因此称为 kil</p>
-                <p class="document-body-left-p">    选项：-9  强行终止进程</p>
-                <p class="document-body-left-p">    注释：pid标示进程号，可由ps命令得到。</p>
-
+                <p class="document-body-left-p">1、固定背景</p>
+                <p class="document-body-left-p">可以设置背景的固定，当我们设置这个属性之后，我们的背景不会随着滚动条的滚动移动。（代码片段如下）</p>
+                <p class="document-body-left-p">实例：</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        background-image :url(css/images/img.jpg) ;
+                        background-position: right bottom ;      /*背景的绝对定位*/
+                        background-attachment:fixed;             /*此属性设置改背景固定*/
+                    </code>
+                </pre>
+                <p class="document-body-left-p">2、背景是否平铺</p>
+                <p class="document-body-left-p">可以设置背景的平铺规则，当我们设置这个属性之后，我们的背景会沿着不同的方向循环平铺展示（代码片段如下）</p>
+                <p class="document-body-left-p">实例：</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        background-image :url(css/images/img.jpg) ;
+                        background-repeat :no-repeat ;            /*背景不平铺单张显示*/
+                        background-repeat :repeat-x ;            /*背景沿x轴平铺*/
+                        background-repeat :repeat-y ;            /*背景沿y轴平铺*/
+                    </code>
+                </pre>
+                <p class="document-body-left-p">3、背景各种属性的连写模式</p>
+                <p class="document-body-left-p">实例：</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        background: color url() repeat attachment position;
+                                                /*颜色  地址 平铺效果 滚动 位置*/
+                    </code>
+                </pre>
                 <hr/>
                 <h1 id="4">字体属性</h1>
-                <p class="document-body-left-p"></p>
+                <p class="document-body-left-p">1、字体的包裹属性</p>
+                <p class="document-body-left-p">当我们设置这个属性之后，字体在元素中自动换行不会超出所在元素</p>
+                <p class="document-body-left-p">实例:</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        word-wrap: normal;
+                                            /*只在允许的断字点换行（浏览器保持默认处理）*/
+                        word-wrap: break-word
+                                                /*在长单词或 URL 地址内部进行换行。*/
+                    </code>
+                </pre>
                 <hr/>
                 <h1 id="5">div与css优势</h1>
                 <p class="document-body-left-p"></p>
@@ -58,17 +112,19 @@
                         <p style="font-size: 2em">目录</p>
                         <hr>
                         <div class="document-right-a">
-                            <p><a href="#1" style="text-decoration: none">1 伪类选择器</a></p>
-                            <p><a href="#2" style="text-decoration: none">2 边框属性重点</a></p>
-                            <p><a href="#3" style="text-decoration: none">3 背景属性</a></p>
-                            <p><a href="#4" style="text-decoration: none">4 字体属性</a></p>
-                            <p><a href="#5" style="text-decoration: none">5 div与css优势</a></p>
+                            <p><a id="btn1" href="#1" style="text-decoration: none">1 伪类选择器</a></p>
+                            <p><a id="btn2" href="#2" style="text-decoration: none">2 边框属性重点</a></p>
+                            <p><a id="btn3" href="#3" style="text-decoration: none">3 背景属性</a></p>
+                            <p><a id="btn4" href="#4" style="text-decoration: none">4 字体属性</a></p>
+                            <p><a id="btn5" href="#5" style="text-decoration: none">5 div与css优势</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <button id="uptop" style="width: 30px;position:fixed;right: 100px;bottom: 40px"><span style="" class="glyphicon glyphicon-upload" aria-hidden="true"></span></button>
+
 </div>
 </body>
 <script>
@@ -82,6 +138,48 @@
             $(elm).css('width',((p) > startPos) ? '360px' : '');
             $(elm).css('float',((p) > startPos) ? 'clear' : '');
         });
+    });
+
+
+    //    锚点时间的实现
+    //        $('.btn1').click(function () {
+    //            $("html,body").animate({
+    //                scrollTop: $("#1").offset().top
+    //            }, 2000);
+    //        });
+
+    $("#btn1").click(function(){
+        $('html,body').animate({
+            scrollTop: $("#1").offset().top
+        }, 800);
+    });
+    $("#btn2").click(function(){
+        $('html,body').animate({
+            scrollTop: $("#2").offset().top
+        }, 800);
+    });
+    $("#btn3").click(function(){
+        $('html,body').animate({
+            scrollTop: $("#3").offset().top
+        }, 800);
+    });
+    $("#btn4").click(function(){
+        $('html,body').animate({
+            scrollTop: $("#4").offset().top
+        }, 800);
+    });
+
+    $("#btn5").click(function(){
+        $('html,body').animate({
+            scrollTop: $("#5").offset().top
+        }, 800);
+    });
+
+    //    回到顶部
+    $("#uptop").click(function(){
+        $('html,body').animate({
+            scrollTop: "0px"
+        }, 600);
     });
 </script>
 {include file="public/footer"}
