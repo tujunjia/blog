@@ -12,6 +12,7 @@ class Index extends Controller
         $this->assign('nav',"index_nav");
         $this->assign('nav_name','tujunjia');
         $this->assign('nav_flag','此网站的搭建过程个人学习总结');
+
         return $this->fetch();
     }
 
@@ -132,9 +133,9 @@ class Index extends Controller
     public function document()
     {
         $this->assign('title',"文章内容");
-        $this->assign('nav',"index_nav");
-        $this->assign('nav_name','tujunjia');
-        $this->assign('nav_flag','此网站的搭建过程个人学习总结');
+        $this->assign('nav',"document");
+        $this->assign('nav_name','linux');
+        $this->assign('nav_flag','linux进程管理');
         return $this->fetch();
     }
 
