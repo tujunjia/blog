@@ -1,0 +1,232 @@
+{include file="public/head,public/nav"}
+<body style="background-color: #F7F7F7">
+<div class="container">
+    <div class="row">
+        <!--左侧-->
+        <div class="col-md-8">
+            <div class="document-body-left">
+                <!--下面是文章内容的展示-->
+                <h1>PHP常用函数总结:</h1>
+                <hr/>
+                <h1 id="1">数组函数：</h1>
+                <p class="document-body-left-p"><b>1</b>.排序类：【1.无返回值，传值引用，就直接对原数组进行了修改】</p>
+                <p class="document-body-left-p">按V：sort,rsort,asort,arsort</p>
+                <p class="document-body-left-p"> 按K：ksort,krsort</p>
+                <p class="document-body-left-p">按字母：natsort();&nbsp;&nbsp;&nbsp;//区分大小写的排序<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;natcasesort();&nbsp;&nbsp;&nbsp;//不区分大小写的排序，</p>
+                <p class="document-body-left-p">当遇到字符完全一样，按照数字排 eg: FILE1,FILE2, 这两个字符相同，再按照数字1<2排，所以结果  FILE1,FILE2</p>
+
+                <p class="document-body-left-p"><b>2</b>.键值操作类：【都有返回值，没有在原来参数上修改】</p>
+                <p class="document-body-left-p">代码展示片段</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        1.array_values($arr);
+                        //获取$arr中的值重排，去掉下标【返回值新索引数组】
+                        2.array_keys($arr[,"str",true])
+                        //获取$arr中所有字符是"str"的下标，形成索引数组，true表示区分大小写【返回新索引数组】
+                        3.array_search("is",$arr[,true])
+                        //返回值"is"在$arr中的key，找不到返回fales,true表示严格按照类型(8,"8")【返回第一个匹配值】
+                        4.in_array("str",$arr);
+                        //判断"str"在$arr中是否存在，【返回BOOL】
+                        5.is_array($arr);
+                        //判断是否是数组【返回BOOL】
+                        6.array_key_exists($key,$arr);
+                        //查询$arr中是否有$key，【返回BOOL】
+                        7.array_flip($arr);
+                        // 交换键值，如有重复，后来居上，【返回新数组】
+                        8.array_reverse($arr,[true|false]);
+                        //数组顺序反转，param2是否保留原来键值【返回新关联/索引数组】
+                        9.array_column(array(),'name'[,name_two]) — 返回数组中指定的name列[可选参数，如果有返回name=>name_two的形式]【返回一维数组】
+                    </code>
+                </pre>
+                <p class="document-body-left-p"><b>3</b>.元素个数和唯一性【都有返回值，没有在原来参数上修改】</p>
+                <p class="document-body-left-p">代码展示片段</p>
+
+                <pre>
+                    <code class="document-body-left-p">
+        1.array_unique($arr);//去掉$arr中的重复值，重复的保留第一个值，【返回数组，键值保留】
+        2.array_count_values($arr)//统计数组值出现的次数，【返回数组，KEY为原来数组的值，VALUE为统计的次数】
+        3.count($arr[,1])/sizeof();//统计$arr的元素个数，参数"1"表示统计多维数组开启，默认0为关闭【返回统计个数】
+                    </code>
+                </pre>
+
+                <p class="document-body-left-p"><b>4</b>.数组的数据结构【无返回值，传值引用，就直接对原数组进行了修改】</p>
+                <p class="document-body-left-p">代码展示片段</p>
+                <pre>
+                    <code class="document-body-left-p">
+            1.array_shift($arr)//从开头，删除数组第一个元素
+            2.array_unshift($arr,"one","two")//从开头，添加元素
+            3.array_pop($arr)//从结尾，删除数组最后一个元素
+            4.array_push($arr,"aaa");//从结尾，添加元素
+            6.current($arr)//返回数组中的当前单元 比如是关联数组是不知道下标，
+            可以输出当前数组的办法解决
+            7.key($arr)//返回当前指针指向元素的键值
+            8.next($arr)//当前指针下移
+            9.pre($arr)//当前指针上移
+            10.end($arr)//指针指到最后
+            11.reset($arr)//指针回归到开头
+            12.unset($arr)//销毁此数组
+
+                    </code>
+
+                </pre>
+
+                <p class="document-body-left-p">按V：sort,rsort,asort,arsort</p>
+                <p class="document-body-left-p"> 按K：ksort,krsort</p>
+                <hr/>
+                <h1 id="2">边框属性重点</h1>
+                <p class="document-body-left-p">1、边框的一般属性</p>
+                <p class="document-body-left-p">实例:</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        border：10px  5px  15px  0;     /*设置边框上右下左的像素*/
+
+                        border-top: 100px solid red;
+                        border-right: 100px solid green;
+                        border-top: 100px solid red;
+                        border-right: 100px solid green;  /*以上四种是分辨设置的*/
+
+                        border-color：red;                 /*这是设置边框四周颜色为红色*/
+
+                        border-top: 100px solid red;      /*连写模式 像素  实线  颜色*/
+                    </code>
+
+                </pre>
+                <p class="document-body-left-p">2、边框的圆角属性</p>
+                <p class="document-body-left-p">实例:</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        border：10px  5px  15px  0         /*分别设置边框的像素*/
+                    </code>
+                </pre>
+                <p class="document-body-left-p"><span style="color: red">注意：</span>IE浏览器不支持圆角属性</p>
+                <hr/>
+                <h1 id="3">背景属性</h1>
+                <p class="document-body-left-p" style="color: red">查进程：</p>
+                <p class="document-body-left-p">1、固定背景</p>
+                <p class="document-body-left-p">可以设置背景的固定，当我们设置这个属性之后，我们的背景不会随着滚动条的滚动移动。（代码片段如下）</p>
+                <p class="document-body-left-p">实例：</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        background-image :url(css/images/img.jpg) ;
+                        background-position: right bottom ;      /*背景的绝对定位*/
+                        background-attachment:fixed;             /*此属性设置改背景固定*/
+                    </code>
+                </pre>
+                <p class="document-body-left-p">2、背景是否平铺</p>
+                <p class="document-body-left-p">可以设置背景的平铺规则，当我们设置这个属性之后，我们的背景会沿着不同的方向循环平铺展示（代码片段如下）</p>
+                <p class="document-body-left-p">实例：</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        background-image :url(css/images/img.jpg) ;
+                        background-repeat :no-repeat ;            /*背景不平铺单张显示*/
+                        background-repeat :repeat-x ;            /*背景沿x轴平铺*/
+                        background-repeat :repeat-y ;            /*背景沿y轴平铺*/
+                    </code>
+                </pre>
+                <p class="document-body-left-p">3、背景各种属性的连写模式</p>
+                <p class="document-body-left-p">实例：</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        background: color url() repeat attachment position;
+                                                /*颜色  地址 平铺效果 滚动 位置*/
+                    </code>
+                </pre>
+                <hr/>
+                <h1 id="4">字体属性</h1>
+                <p class="document-body-left-p">1、字体的包裹属性</p>
+                <p class="document-body-left-p">当我们设置这个属性之后，字体在元素中自动换行不会超出所在元素</p>
+                <p class="document-body-left-p">实例:</p>
+                <pre>
+                    <code class="document-body-left-p">
+                        word-wrap: normal;
+                                            /*只在允许的断字点换行（浏览器保持默认处理）*/
+                        word-wrap: break-word
+                                                /*在长单词或 URL 地址内部进行换行。*/
+                    </code>
+                </pre>
+                <hr/>
+                <h1 id="5">div与css优势</h1>
+                <p class="document-body-left-p"></p>
+
+            </div>
+        </div>
+        <!--右侧-->
+        <div class="col-md-4 ">
+            <div>
+                <!--目录的div-->
+                <div class="body-background body-background-nav">
+                    <div class="body-background-nav-position" >
+                        <p style="font-size: 2em">目录</p>
+                        <hr>
+                        <div class="document-right-a">
+                            <p><a id="btn1" href="#1" style="text-decoration: none">1 数组函数</a></p>
+                            <p><a id="btn2" href="#2" style="text-decoration: none">2 边框属性重点</a></p>
+                            <p><a id="btn3" href="#3" style="text-decoration: none">3 背景属性</a></p>
+                            <p><a id="btn4" href="#4" style="text-decoration: none">4 字体属性</a></p>
+                            <p><a id="btn5" href="#5" style="text-decoration: none">5 div与css优势</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="uptop" style="width: 30px;position:fixed;right: 100px;bottom: 40px"><span style="" class="glyphicon glyphicon-upload" aria-hidden="true"></span></button>
+
+</div>
+</body>
+<script>
+    $(function() {
+        var elm = $('.body-background-nav');
+        var startPos = $(elm).offset().top;
+        $.event.add(window, "scroll", function() {
+            var p = $(window).scrollTop();
+            $(elm).css('position',((p) > startPos) ? 'fixed' : 'static');
+            $(elm).css('top',((p) > startPos) ? '0px' : '');
+            $(elm).css('width',((p) > startPos) ? '360px' : '');
+            $(elm).css('float',((p) > startPos) ? 'clear' : '');
+        });
+    });
+
+
+    //    锚点时间的实现
+    //        $('.btn1').click(function () {
+    //            $("html,body").animate({
+    //                scrollTop: $("#1").offset().top
+    //            }, 2000);
+    //        });
+
+    $("#btn1").click(function(){
+        $('html,body').animate({
+            scrollTop: $("#1").offset().top
+        }, 800);
+    });
+    $("#btn2").click(function(){
+        $('html,body').animate({
+            scrollTop: $("#2").offset().top
+        }, 800);
+    });
+    $("#btn3").click(function(){
+        $('html,body').animate({
+            scrollTop: $("#3").offset().top
+        }, 800);
+    });
+    $("#btn4").click(function(){
+        $('html,body').animate({
+            scrollTop: $("#4").offset().top
+        }, 800);
+    });
+
+    $("#btn5").click(function(){
+        $('html,body').animate({
+            scrollTop: $("#5").offset().top
+        }, 800);
+    });
+
+    //    回到顶部
+    $("#uptop").click(function(){
+        $('html,body').animate({
+            scrollTop: "0px"
+        }, 600);
+    });
+</script>
+{include file="public/footer"}

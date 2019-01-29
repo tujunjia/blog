@@ -168,6 +168,21 @@ class Index extends Controller
     }
 
     /**
+     * PHP常用函数总结界面显示
+     */
+    public function index_document_php(){
+        $this->assign('title','文章内容');
+        $this->assign('nav','document_php');
+        $this->assign('nav_name','');
+        $this->assign('nav_name_a','PHP');
+        $this->assign('nav_flag','php常用函数总结');
+        $this->assign('nav_author','涂峻嘉');
+        $this->assign('nav_actime','2018/08/01');
+        return $this->fetch();
+
+    }
+
+    /**
      * about自我的关于界面
      */
     public function about(){
